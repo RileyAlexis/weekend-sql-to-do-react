@@ -2,22 +2,13 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #222;
-  height: 70px;
-  padding: 20px;
-  color: white;
+.container {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(5, auto);
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.cardlist {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
 }

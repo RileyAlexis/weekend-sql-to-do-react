@@ -2,6 +2,7 @@ import React from 'react';
 // import {useState, useEffect} from 'react';
 import CardList from '../cards/card_list.jsx';
 import axios from 'axios';
+import '../App/App.css';
 
 const useState = React.useState;
 const useEffect = React.useEffect;
@@ -23,12 +24,25 @@ function App () {
   
   useEffect(() => {
     fetchTodoList();
+    console.log(taskList);
   }, []);
 
 
   return (
     <div className="container">
+      <div className="cardlist">
       <CardList title="Task List" taskList={taskList} />
+      </div>
+
+
+
+
+
+
+
+
+
+
       </div>
 
 
