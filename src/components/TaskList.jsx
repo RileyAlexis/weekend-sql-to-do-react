@@ -1,7 +1,12 @@
+import Ticker from './Ticker';
 
-function TaskList ({task}) {
+function TaskList ({key, task, fetch}) {
+ 
+const display = task.complete ? 'completed' : 'notCompleted';
+
     return (
-        <div className="task-listing">
+        <div className={`task-listing ${display}`} >
+            <Ticker id={task.id} fetch={fetch} complete={task.complete}/>
             <p className="task-title">{task.title}</p>
             <p className="due-date">Due: {task.due_date}</p>
             

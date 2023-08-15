@@ -31,7 +31,7 @@ function App () {
     <div className="container">
       <Header title="Task List"/>
       <div className="task-list-container">
-        {taskList?.map((task) => <TaskList key={task.id} task={task} />)}
+        {taskList?.map((task) => <TaskList key={task.id} task={task} fetch={fetchTodoList} />)}
         </div>
       <div className="newTask-container">
         <AddTask fetch={fetchTodoList}/>

@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
             "id", "title", "start_time", "due_time", "repeatTask", "notes", "url",
             "priority", "list", "icon",
             TO_CHAR("due_date", 'fmDay, fmDDth fmMonth YYYY') AS "due_date",
-            TO_CHAR("start_date", 'fmDay, fmDDth fmMonth YYYY') AS "start_date"
+            TO_CHAR("start_date", 'fmDay, fmDDth fmMonth YYYY') AS "start_date", "complete"
             FROM "tasklist";
             `;
     pool.query(queryString)
@@ -38,7 +38,25 @@ router.post('/', (req, res) => {
 })
 
 
-// PUT
+// PUT - Updates complete column only
+router.put('/complete/:id', (req, res) => {
+    let id = req.params.id;
+    let queryString = `
+            UPDATE "tasklist"
+            SET "complete" = NOT "complete"
+            WHERE "id" = $1;`;
+        
+            console.log('ID', id);
+    
+            pool.query(queryString, [id])
+    .then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.error(`Error making query ${queryString}`, error);
+    })
+})
+
+
 
 // DELETE
 

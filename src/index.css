@@ -34,6 +34,12 @@ body {
   text-align: center;
 }
 
+.task-list-container .completed {
+  text-decoration: line-through;
+  background: rgba(86, 102, 108, 0.4);
+  color: rgb(100,100,100);
+}
+
 .task-listing {
   padding: 10px;
   margin-top: 5px;
@@ -110,4 +116,31 @@ body {
   width: 95%;
   height: 150px;
   text-align: left;
+}
+
+#check-mark-circle {
+  fill: none; 
+  stroke: rgb(0, 0, 0); 
+  stroke-linecap: round; 
+  stroke-linejoin: round; 
+  stroke-width: 2;
+}
+
+#primary-2 {
+  fill: none; 
+  stroke: rgb(0, 0, 0); 
+  stroke-linecap: round; 
+  stroke-linejoin: round; 
+  stroke-width: 2;
+}
+
+#secondary {
+  fill: rgb(44, 169, 188); 
+  stroke-width: 2;
+}
+
+.tickerBtn {
+  background: transparent;
+  box-shadow: none;
+  border: none;
 }
