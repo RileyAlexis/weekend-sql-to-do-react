@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import TaskList from '../TaskList';
 import Header from '../Header';
+import AddTask from '../AddTask';
 
 function App () {
   
@@ -32,7 +33,10 @@ function App () {
       <div className="task-list-container">
         {taskList?.map((task) => <TaskList key={task.id} task={task} />)}
         </div>
+      <div className="newTask-container">
+        <AddTask fetch={fetchTodoList}/>
 
+      </div>
 
 
 
