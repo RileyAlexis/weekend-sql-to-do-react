@@ -29,9 +29,9 @@ function App () {
   return (
     <div className="container">
       <Header title="Task List"/>
-      <div className="task-list">
+      <div className="task-list-container">
         {taskList?.map((task) => <TaskList key={task.id} task={task} />)}
-      </div>
+        </div>
 
 
 
