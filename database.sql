@@ -24,14 +24,14 @@ CREATE TABLE lists (
 
 
 INSERT INTO tasklist (title, start_date, start_time, due_date, 
-            due_time, "repeatTask", notes, url, priority, list, icon)
+            due_time, "repeatTask", notes, url, priority, list, icon, complete)
 VALUES ('Buy more Candy', '20230814', '14:30:00-8:00', '20230814', 
         '16:45:00-8:00', '{M, T, W, Th, F}', 'LIST::Red licorice:Caramels:Jelly Beans',
-        'www.moreCandy.com', '1', '1', '::heart::'
+        'www.moreCandy.com', '1', '1', '::heart::', false
         )
 VALUES ('Burn down the patriarchy', '20230814', '09:00:00-8:00','20240901',
         '16:00:00-8:00', '{M, T, W, Th, F, Sa, Su}', 'Use gasoline',
-        'www.feminist.com', '1', '1', '::heart::'
+        'www.feminist.com', '1', '1', '::heart::', false
         )
 
 INSERT INTO lists (title, "taskKeys")
