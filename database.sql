@@ -1,3 +1,6 @@
+CREATE DATABASE to_dotasklist;
+
+
 CREATE TABLE tasklist (
     "id" SERIAL PRIMARY KEY,
     "title" varchar(255),

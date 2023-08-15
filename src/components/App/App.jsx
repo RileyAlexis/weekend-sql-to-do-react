@@ -1,15 +1,14 @@
 import React from 'react';
-// import {useState, useEffect} from 'react';
-import CardList from '../cards/card_list.jsx';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
-import '../App/App.css';
 
-const useState = React.useState;
-const useEffect = React.useEffect;
+import TaskList from '../TaskList';
+import Header from '../Header';
 
 function App () {
   
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState(null);
+  const [markForDelete, setMarkForDelete] = useState('');
 
 
   const fetchTodoList = () => {
@@ -24,14 +23,14 @@ function App () {
   
   useEffect(() => {
     fetchTodoList();
-    console.log(taskList);
   }, []);
 
 
   return (
     <div className="container">
-      <div className="cardlist">
-      <CardList title="Task List" taskList={taskList} />
+      <Header title="Task List"/>
+      <div className="task-list">
+        {taskList?.map((task) => <TaskList key={task.id} task={task} />)}
       </div>
 
 

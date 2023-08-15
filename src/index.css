@@ -3,3 +3,24 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.container {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(5, auto);
+  gap: 5px 5px;
+  margin: 10px 10px 10px 10px;
+  padding: 5px;
+}
+
+.header-container{
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 1;
+  font-size: 16pt;
+  box-shadow: rgba(0,0,0, 0.2) 2px 2px 6px;
+  background:rgba(216, 243, 255, 0.4)
+}
+
+.header-title {
+  text-align:center;
+}
