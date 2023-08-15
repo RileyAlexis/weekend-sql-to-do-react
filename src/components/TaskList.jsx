@@ -1,8 +1,18 @@
+import axios from 'axios';
 import Ticker from './Ticker';
 
 function TaskList ({key, task, fetch}) {
  
 const display = task.complete ? 'completed' : 'notCompleted';
+
+const deleteTask = () => {
+axios.delete(`todo/${task.id}`)
+.then((response) => {
+    fetch();
+}).catch((error) => {
+    console.log(error);
+})
+}
 
     return (
         <div className={`task-listing ${display}`} >
@@ -12,7 +22,7 @@ const display = task.complete ? 'completed' : 'notCompleted';
             
             <div className="button-container">
             <button className="edit">Edit</button>
-            <button className="delete">Delete</button>
+            <button onClick={deleteTask} className="delete">Delete</button>
             </div>
         </div>
 

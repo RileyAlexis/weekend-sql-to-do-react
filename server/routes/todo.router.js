@@ -59,5 +59,18 @@ router.put('/complete/:id', (req, res) => {
 
 
 // DELETE
+router.delete('/:id', (req, res) => {
+    let id = req.params.id;
+    let queryString = `
+        DELETE FROM "tasklist" WHERE "id" = $1;`;
+    pool.query(queryString, [id])
+    .then((response) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+    console.error(`Error making query ${queryString}`, error);
+    })
+
+})
+
 
 module.exports = router;
