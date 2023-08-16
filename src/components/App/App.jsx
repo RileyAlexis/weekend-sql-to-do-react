@@ -25,6 +25,14 @@ function App () {
     fetchTodoList();
   }, []);
 
+// Todo List - 
+//  - Allow repeating tasks
+//  - Allow editing of tasks
+//  - Set icons for each task
+// - Order by priority
+// - Include additional data such as URL on mouseOver
+// - Allow grouping of tasks into lists
+// - Fix weird sorting issue when marking as complete - fixed by sorting array on server
 
   return (
     <div className="container">
@@ -36,27 +44,10 @@ function App () {
         <AddTask fetch={fetchTodoList}/>
 
       </div>
-
-
-
-
-
-
-
-
-
       </div>
-
-
-
-
-
-
-
-
 
   );
 
 }
 
-export default App
+export default App;

@@ -14,7 +14,9 @@ router.get('/', (req, res) => {
             `;
     pool.query(queryString)
     .then((result) => {
-        res.send(result.rows);
+        let dataArr = result.rows.sort((a, b) => {return a.id - b.id})
+        console.log(dataArr);
+        res.send(dataArr);
     }).catch((error) => {
         console.log(error);
     })
