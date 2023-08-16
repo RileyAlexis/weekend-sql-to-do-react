@@ -17,6 +17,7 @@ const addTask = (event) => {
                     complete: false})
     .then((response) => {
         fetch();
+        setDisplayWin(false);
     }).catch((error) => {
         console.error(error);
     });
@@ -31,8 +32,10 @@ const exitWin = () => {
 }
 
     return (
-        <div className="newTask">
+        <div className="newTask-box">
             <button className="delete" onClick={exitWin}>X</button>
+            <h3>Add New Task</h3>
+            <div className="form-box">
             <form onSubmit={addTask}>
             <label>Title:</label>
             <input required 
@@ -40,25 +43,27 @@ const exitWin = () => {
                     type="text" 
                     max-length={255}
                     onChange={event => setTitle(event.target.value)}/>
-            <br/>
+            <br />
             <label>Due Date:</label>
             <input type="date" 
             value={due_date}
                    onChange={event => setDue_date(event.target.value)} />
-            <br/>
+            <br />
             <label>Due Time:</label>
             <input type="time"
                     value={due_time}
                     onChange={event => setDue_time(event.target.value)}/>
-            <br/>
+            <br />
             <label>Notes:</label>
-            <br/>
-            <textarea className="notes-box" 
+            
+            <textarea maxLength={255} rows={5} cols={51} className="notes-box" 
                     value={notes}
                         onChange={event => setNotes(event.target.value)}/>
-            <br/><br/>
+        
             <button className="edit" type="submit">Add Task</button>
             </form>
+            </div>
+            
         </div>
 
     )
