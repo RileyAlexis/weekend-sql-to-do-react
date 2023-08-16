@@ -14,7 +14,7 @@ const setComplete = () => {
 
     return (
         <div>
-            <input type="checkbox" onChange={setComplete} checked={complete} />
+            <input type="checkbox" className="ticker" onChange={setComplete} checked={complete} />
             </div>
 
     )

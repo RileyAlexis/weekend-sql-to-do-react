@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import axios from 'axios';
 
-function AddTask({fetch}) {
+function AddTask({setDisplayWin, fetch}) {
 
 const [title, setTitle] = useState('');
 const [due_date, setDue_date] = useState('');
@@ -26,8 +26,13 @@ const addTask = (event) => {
     setNotes('');
 }
 
+const exitWin = () => {
+    setDisplayWin(false);
+}
+
     return (
         <div className="newTask">
+            <button className="delete" onClick={exitWin}>X</button>
             <form onSubmit={addTask}>
             <label>Title:</label>
             <input required 

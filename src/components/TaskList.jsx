@@ -30,13 +30,13 @@ const deleteTask = () => {
     return (
         <div className={`task-listing ${display}`} >
             <Ticker id={task.id} fetch={fetch} complete={task.complete}/>
-            <span className="task-title">{task.title}</span>
-            <span className="due-date">Due: {task.frm_due_date}</span>
+            <div className="task-title">{task.title}</div>
+            <div className="due-date">Due: {task.frm_due_date}</div>
             
             <div className="button-container">
                 {/* Todo - create edit button functionality */}
             {/* <button className="edit">Edit</button> */}
-            <button onClick={deleteTask} className="delete">Delete</button>
+            <button onClick={deleteTask} className="delete">X</button>
             </div>
         </div>
 
