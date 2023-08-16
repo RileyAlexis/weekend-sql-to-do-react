@@ -16,7 +16,6 @@ function App () {
     axios.get('/todo/')
     .then((response) => {
       setTaskList(response.data);
-      console.log('Fetching Data', response.data);
     }).catch((error) => {
       console.log(error);
     })

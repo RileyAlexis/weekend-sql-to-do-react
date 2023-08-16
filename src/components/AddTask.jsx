@@ -13,12 +13,17 @@ const addTask = (event) => {
     axios.post('/todo/', {title: title, 
                     due_date: due_date, 
                     due_time: due_time, 
-                    notes: notes})
+                    notes: notes,
+                    complete: false})
     .then((response) => {
         fetch();
     }).catch((error) => {
         console.error(error);
     });
+    setTitle('');
+    setDue_date('');
+    setDue_time('');
+    setNotes('');
 }
 
     return (
@@ -40,11 +45,11 @@ const addTask = (event) => {
             <input type="time"
                     value={due_time}
                     onChange={event => setDue_time(event.target.value)}/>
-                    {console.log(due_time)}
             <br/>
             <label>Notes:</label>
             <br/>
             <textarea className="notes-box" 
+                    value={notes}
                         onChange={event => setNotes(event.target.value)}/>
             <br/><br/>
             <button className="edit" type="submit">Add Task</button>
