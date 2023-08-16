@@ -103,23 +103,28 @@ body {
 
 .due-date {
   display:flex;
-  align-self:flex-end;
+  align-self:center;
   flex-grow: 4;
   font-size: 10pt;
 }
 
-.button-container{
-  display:flex;
-  flex-grow: 1;
-  align-self:flex-start;
+.button-container {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .edit {
+  grid-column: 3;
+  grid-row: 3;
+  width: min-content;
+  height: min-content;
+  padding-bottom: 5px;
   background: transparent;
   box-shadow: inset -1px -1px 5px rgba(0,0,0, 0.2);
   border: none;
-  transition: 0.01s;
-  margin-right: 8px;
+  border-radius: 30px;
+  transition: 0.02s;
 }
 
 .edit:hover {
@@ -131,10 +136,14 @@ body {
 }
 
 .delete {
+  grid-column: 3;
+  grid-row: 1;
+  width: 25px;
+  height: 25px;
+  padding-bottom: 5px;
   background: transparent;
   box-shadow: inset -1px -1px 5px rgba(0,0,0, 0.2);
   border-radius: 30px;
-
 }
 
 .delete:hover {

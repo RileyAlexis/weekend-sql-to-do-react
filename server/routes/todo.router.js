@@ -37,6 +37,7 @@ router.post('/', (req, res) => {
             res.sendStatus(200);
         }).catch((error) => {
             console.error(`Error making query ${queryString}`, error);
+            res.sendStatus(500);
         })
 })
 
@@ -48,14 +49,27 @@ router.put('/complete/:id', (req, res) => {
             UPDATE "tasklist"
             SET "complete" = NOT "complete"
             WHERE "id" = $1;`;
-        
-            console.log('ID', id);
-    
             pool.query(queryString, [id])
     .then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
         console.error(`Error making query ${queryString}`, error);
+        res.sendStatus(500);
+    })
+})
+
+router.put('/edit/:id', (req, res) => {
+    let id = req.params.id;
+    let queryString = `
+        UPDATE "tasklist"
+        SET "title" = $1, "due_date" = $2, "due_time" = $3, "notes" = $4
+        WHERE "id" = $5;`;
+    pool.query(queryString, [req.body.title, req.body.due_date, req.body.due_time, req.body.notes, id])
+    .then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.error(`Error making query ${queryString}`, error);
+        res.sendStatus(500);
     })
 })
 
@@ -71,6 +85,7 @@ router.delete('/:id', (req, res) => {
         res.sendStatus(200);
     }).catch((error) => {
     console.error(`Error making query ${queryString}`, error);
+    res.sendStatus(500);
     })
 
 })

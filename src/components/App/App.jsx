@@ -11,6 +11,7 @@ function App () {
   const [taskList, setTaskList] = useState(null);
   const [markForDelete, setMarkForDelete] = useState('');
   const [displayWin, setDisplayWin] = useState(false);
+  
 
   const toggleWin = (dis) => {
     if (dis) return {display: 'flex'}
@@ -50,6 +51,7 @@ function App () {
       <div className="newTask-container" style={toggleWin(displayWin)}>
         <AddTask setDisplayWin={setDisplayWin} fetch={fetchTodoList}/>
       </div>
+
       
     </div>
 
