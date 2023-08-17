@@ -35,7 +35,7 @@ function App () {
 
 // Todo List - 
 //  - Allow repeating tasks
-//  - Allow editing of tasks
+//  - DONE - Allow editing of tasks
 //  - Set icons for each task
 // - Order by priority
 // - Include additional data such as URL on mouseOver
