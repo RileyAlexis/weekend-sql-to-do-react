@@ -10,6 +10,13 @@ function TaskList ({task, fetch}) {
 const display = task.complete ? 'completed' : 'notCompleted';
 const [displayEditWin, setDisplayEditWin] = useState(false);
 
+const compareDate = new Date(task.due_date);
+const timeElapsed = Date.now();
+const currentDay = new Date(timeElapsed);
+
+const overDue = currentDay.toISOString() > compareDate.toISOString() ? 'overdue' : '';
+console.log(currentDay);
+console.log(compareDate.toDateString());
 const deleteTask = () => {
     swal({
         title: `Delete ${task.title}?`,
@@ -41,7 +48,7 @@ const editTask = () => {
 }
 
     return (
-        <div className={`task-listing ${display}`} >
+        <div className={`task-listing ${display} ${overDue}`} >
             <Ticker id={task.id} fetch={fetch} complete={task.complete}/>
             <div className="task-title">{task.title}</div>
             <div className="due-date">Due: {task.frm_due_date}</div>

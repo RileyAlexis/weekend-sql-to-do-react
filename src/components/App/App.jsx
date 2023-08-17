@@ -11,7 +11,14 @@ function App () {
   const [taskList, setTaskList] = useState(null);
   const [markForDelete, setMarkForDelete] = useState('');
   const [displayWin, setDisplayWin] = useState(false);
-  
+  const [currentDay, setCurrentDay] = useState(null);
+
+
+  const getToday = () => {
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);
+    setCurrentDay(today.toDateString());
+  }
 
   const toggleWin = (dis) => {
     if (dis) return {display: 'flex'}
@@ -29,6 +36,7 @@ function App () {
   
   useEffect(() => {
     fetchTodoList();
+    getToday();
   }, []);
 
   
@@ -44,7 +52,7 @@ function App () {
 
   return (
     <div className="container">
-      <Header setDisplayWin={setDisplayWin} title="Task List"/>
+      <Header setDisplayWin={setDisplayWin} currentDay={currentDay} title="Task List"/>
       <div className="task-list-container">
         {taskList?.map((task) => <TaskList key={task.id} task={task} fetch={fetchTodoList} />)}
         </div>
