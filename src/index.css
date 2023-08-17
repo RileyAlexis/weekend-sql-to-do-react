@@ -64,6 +64,7 @@ body {
 
 .task-list-container .overdue {
   background: rgb(255, 145, 145);
+  color:aliceblue;
 }
 
 .task-listing {
@@ -91,13 +92,6 @@ body {
   color: rgb(100,100,100);
   transition: 0.5s;
 }
-
-.task-listing .overdue {
-  background:rgb(255, 75, 0);
-  color:aliceblue;
-  font-weight: bold;
-}
-
 
 .task-title {
   display:flex;
