@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 
 import EditTask from './EditTask';
 
-function TaskList ({key, task, fetch}) {
+function TaskList ({task, fetch}) {
  
 const display = task.complete ? 'completed' : 'notCompleted';
 const [displayEditWin, setDisplayEditWin] = useState(false);
