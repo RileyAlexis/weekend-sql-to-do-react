@@ -1,9 +1,6 @@
-
-
-
-
 function Header ({setDisplayWin, currentDay, title}) {
 
+    //Calls function to toggle visibility of AddNewTask element
     const addNew = () => {
         setDisplayWin(true);
     }

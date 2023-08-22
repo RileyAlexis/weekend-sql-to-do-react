@@ -1,7 +1,9 @@
+//React Imports
 import React from 'react';
 import {useState, useEffect} from 'react';
+//Libraries
 import axios from 'axios';
-
+//Components
 import TaskList from '../TaskList';
 import Header from '../Header';
 import AddTask from '../AddTask';
@@ -13,13 +15,14 @@ function App () {
   const [displayWin, setDisplayWin] = useState(false);
   const [currentDay, setCurrentDay] = useState(null);
 
-
+//Gets today's date and stores in currentDay state
   const getToday = () => {
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
     setCurrentDay(today.toDateString());
   }
 
+  //Toggles visibility of the AddNewTask element
   const toggleWin = (dis) => {
     if (dis) return {display: 'flex'}
     else return {display: 'none'}
